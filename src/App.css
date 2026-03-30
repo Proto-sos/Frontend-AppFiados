@@ -1,0 +1,142 @@
+/* Variables de color y estilo */
+:root {
+  --primary: #646cff;
+  --primary-hover: #535bf2;
+  --bg-body: #f4f7f6;
+  --bg-nav: #1e293b;
+  --text-dark: #333;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Base del sitio */
+body {
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Contenedor principal centrado */
+.container {
+  width: 100%;
+  max-width: 850px;
+  /* Ancho ideal para lectura y tablas */
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Navegación tipo "Floating Pill" */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-nav);
+  padding: 10px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+}
+
+.nav-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Área de contenido para las páginas */
+.content-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para Tablas (que se verán en las páginas hijas) */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: center;
+  /* Todo centrado en las tablas */
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f8fafc;
+  color: #64748b;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Estilos para Formularios y Cards */
+.card,
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 450px;
+  /* Formularios más estrechos para que se vean mejor */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
