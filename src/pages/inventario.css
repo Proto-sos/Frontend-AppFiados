@@ -1,0 +1,78 @@
+/* Contenedor principal de la tabla */
+.tabla-contenedor {
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar barra de scroll en PC (Pantallas mayores a 768px) */
+@media (min-width: 769px) {
+    .tabla-contenedor {
+        overflow-x: hidden;
+    }
+}
+
+/* Estilo de la tabla */
+.tabla-inventario {
+    width: 100%;
+    min-width: 400px;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.tabla-inventario thead tr {
+    background-color: #f8fafc;
+    text-align: left;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tabla-inventario th, 
+.tabla-inventario td {
+    padding: 10px;
+}
+
+.tabla-inventario tbody tr {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Contenedor de botones */
+.acciones-celda {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botones de acción */
+.btn-accion {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    padding: 0;
+    transition: transform 0.1s ease;
+}
+
+.btn-accion:active {
+    transform: scale(0.9);
+}
+
+.btn-stock { background-color: #10b981; }
+.btn-edit { background-color: #f59e0b; }
+.btn-delete { background-color: #ef4444; }
+
+/* Scrollbar personalizado para móviles */
+.tabla-contenedor::-webkit-scrollbar {
+    height: 5px;
+}
+.tabla-contenedor::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}

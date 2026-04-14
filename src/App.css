@@ -5,10 +5,16 @@
   --bg-body: #f4f7f6;
   --bg-nav: #1e293b;
   --text-dark: #333;
+  --text-muted: #64748b;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Base del sitio */
+/* Reset Global */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   background-color: var(--bg-body);
   color: var(--text-dark);
@@ -17,13 +23,13 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
-/* Contenedor principal centrado */
+/* Contenedor principal */
 .container {
   width: 100%;
   max-width: 850px;
-  /* Ancho ideal para lectura y tablas */
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -67,7 +73,7 @@ body {
   color: white;
 }
 
-/* Área de contenido para las páginas */
+/* Área de contenido */
 .content-area {
   width: 100%;
   display: flex;
@@ -75,7 +81,7 @@ body {
   align-items: center;
 }
 
-/* Estilos para Tablas (que se verán en las páginas hijas) */
+/* Tablas */
 table {
   width: 100%;
   border-collapse: separate;
@@ -87,45 +93,62 @@ table {
   margin-top: 20px;
 }
 
-th,
-td {
+th, td {
   padding: 15px;
   text-align: center;
-  /* Todo centrado en las tablas */
   border-bottom: 1px solid #eee;
 }
 
 th {
   background-color: #f8fafc;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Estilos para Formularios y Cards */
-.card,
-form {
+/* Formularios y Cards */
+.card, form {
   background: white;
   padding: 30px;
   border-radius: 15px;
   box-shadow: var(--shadow);
   width: 100%;
   max-width: 450px;
-  /* Formularios más estrechos para que se vean mejor */
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-input {
+/* Inputs, Selects y Textareas */
+input, select, textarea {
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #e2e8f0;
   font-size: 1rem;
   text-align: center;
+  background-color: #ffffff !important;
+  color: var(--text-dark) !important;
+  transition: all 0.2s ease;
+  outline: none;
+  width: 100%;
 }
 
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.1);
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: -10px;
+  text-align: left;
+  width: 100%;
+}
+
+/* Botones */
 button {
   padding: 12px 24px;
   background: var(--primary);
@@ -134,9 +157,121 @@ button {
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  margin-top: 10px;
 }
 
 button:hover {
   background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Buscadores (Input + Botón lado a lado) */
+.contenedor-busqueda {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.contenedor-busqueda button {
+  margin-top: 0;
+  height: 46px;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    border-radius: 20px;
+  }
+  .container {
+    padding: 20px 10px;
+  }
+}
+.sugerencias-lista {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.sugerencias-lista li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.sugerencias-lista li:hover {
+    background-color: #f8fafc;
+    color: #646cff;
+}
+
+.sugerencias-lista li:last-child {
+    border-bottom: none;
+}
+
+input:focus {
+    outline: none;
+    border-color: #646cff;
+    box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.1);
+}
+.btn-small {
+    padding: 2px 8px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.btn-delete:hover {
+    transform: scale(1.2);
+}
+
+.sugerencias-lista {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.sugerencias-lista li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.sugerencias-lista li:hover {
+    background: #f0f0ff;
 }

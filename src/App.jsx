@@ -16,7 +16,6 @@ function App() {
           <Link to="/" className="nav-link">📦 Inventario</Link>
           <Link to="/clientes" className="nav-link">👥 Clientes y Pagos</Link>
           <Link to="/nuevo-fiado" className="nav-link">📝 Registrar Fiado</Link>
-          {/* 2. Añadimos el link al menú */}
           <Link to="/cobranza" className="nav-link">📋 Deudas Generales</Link>
         </nav>
 
@@ -27,7 +26,6 @@ function App() {
           <Route path="/" element={<Inventario />} />
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/nuevo-fiado" element={<NuevoFiado />} />
-          {/* 3. Registramos la ruta para que React sepa qué mostrar */}
           <Route path="/cobranza" element={<ResumenClientes />} />
         </Routes>
       </div>
